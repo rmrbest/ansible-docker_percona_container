@@ -1,0 +1,19 @@
+---
+- name: Install pip for docker workaround
+  shell: wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py && rm get-pip.py
+
+- name: install docker-py workaround
+  pip: name=docker-py
+
+- name: start database container
+    docker:
+        name: {{image_name}}
+        image: percona:5.6
+        state: reloaded
+        ports:
+          - "3306:3306"
+        volumes:
+          - {{local_mysql_data_path}}:/var/lib/mysql
+        env:
+          MYSQL_ROOT_PASSWORD: {{root_password}}
+          MYSQL_DATABASE: {{database_name}}
