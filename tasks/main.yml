@@ -6,14 +6,14 @@
   pip: name=docker-py
 
 - name: start database container
-    docker:
-        name: {{container_name}}
-        image: percona:5.6
-        state: reloaded
-        ports:
-          - "3306:3306"
-        volumes:
-          - {{local_mysql_data_path}}:/var/lib/mysql
-        env:
-          MYSQL_ROOT_PASSWORD: {{root_password}}
-          MYSQL_DATABASE: {{database_name}}
+  docker:
+    name: {{container_name}}
+    image: percona:5.6
+    state: reloaded
+    ports:
+      - "3306:3306"
+    volumes:
+      - {{local_mysql_data_path}}:/var/lib/mysql
+    env:
+      MYSQL_ROOT_PASSWORD: {{root_password}}
+      MYSQL_DATABASE: {{database_name}}
