@@ -7,7 +7,7 @@
 
 - name: start database container
     docker:
-        name: {{image_name}}
+        name: {{container_name}}
         image: percona:5.6
         state: reloaded
         ports:
