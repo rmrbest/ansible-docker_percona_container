@@ -34,4 +34,4 @@
       REPLICATION_SLAVE_USER: "{{ slave_user }}"
       REPLITACION_SLAVE_PASSWORD: "{{ slave_user_password }}"
     links:
-      - "{{ container_name }}":mysql
+      - "{{ container_name }}:mysql"
