@@ -15,7 +15,21 @@
       MYSQL_ROOT_PASSWORD: "{{ root_password }}"
       MYSQL_DATABASE: "{{ database_name }}"
       REPLICATION: "{{ active_replication }}" 
-      REPLICATION_NODE: "{{ num_node }}"
+      REPLICATION_NODE: "{{ num_node_master }}"
       REPLICATION_SLAVE_USER: "{{ slave_user }}"
       REPLITACION_SLAVE_PASSWORD: "{{ slave_user_password }}"
       
+- name: start database container
+  docker:
+    name: "{{ container_name_slave }}"
+    image: rmrbest/percona
+    state: reloaded
+    volumes:
+      - "{{ local_mysql_data_slave_path }}:/var/lib/mysql"
+    env:
+      MYSQL_ROOT_PASSWORD: "{{ root_password }}"
+      MYSQL_DATABASE: "{{ database_name }}"
+      REPLICATION: "{{ active_replication }}" 
+      REPLICATION_NODE: "{{ num_node_slave }}"
+      REPLICATION_SLAVE_USER: "{{ slave_user }}"
+      REPLITACION_SLAVE_PASSWORD: "{{ slave_user_password }}"
