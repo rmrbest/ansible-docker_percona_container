@@ -26,6 +26,7 @@
     state: reloaded
     volumes:
       - "{{ local_mysql_data_slave_path }}:/var/lib/mysql"
+      - "{{ local_mysql_backup_slave_path }}:/opt/backups"
     env:
       MYSQL_ROOT_PASSWORD: "{{ root_password }}"
       MYSQL_DATABASE: "{{ database_name }}"
