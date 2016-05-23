@@ -7,7 +7,7 @@
     name: "{{ container_name }}"
     image: rmrbest/percona
     state: reloaded
-    log-driver: syslog
+    log_driver: syslog
     ports:
       - "3306:3306"
     volumes:
@@ -25,7 +25,7 @@
     name: "{{ container_name_slave }}"
     image: rmrbest/percona
     state: reloaded 
-    log-driver: syslog
+    log_driver: syslog
     volumes:
       - "{{ local_mysql_data_slave_path }}:/var/lib/mysql"
       - "{{ local_mysql_backup_slave_path }}:/opt/backups"
