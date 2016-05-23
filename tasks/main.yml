@@ -25,7 +25,7 @@
   docker:
     name: "{{ container_name_slave }}"
     image: rmrbest/percona
-    state: reloaded 
+    state: started 
     log_driver: syslog
     detach: true
     volumes:
