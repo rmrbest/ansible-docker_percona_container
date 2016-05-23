@@ -8,6 +8,7 @@
     image: rmrbest/percona
     state: reloaded
     log_driver: syslog
+    detach: true
     ports:
       - "3306:3306"
     volumes:
@@ -26,6 +27,7 @@
     image: rmrbest/percona
     state: reloaded 
     log_driver: syslog
+    detach: true
     volumes:
       - "{{ local_mysql_data_slave_path }}:/var/lib/mysql"
       - "{{ local_mysql_backup_slave_path }}:/opt/backups"
