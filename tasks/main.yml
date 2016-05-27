@@ -25,9 +25,7 @@
   docker:
     name: "{{ container_name_slave }}"
     image: rmrbest/percona
-    state: started 
-    log_driver: syslog
-    detach: true
+    state: reloaded 
     volumes:
       - "{{ local_mysql_data_slave_path }}:/var/lib/mysql"
       - "{{ local_mysql_backup_slave_path }}:/opt/backups"
