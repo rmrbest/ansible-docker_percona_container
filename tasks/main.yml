@@ -30,7 +30,7 @@
       - "{{ local_mysql_data_slave_path }}:/var/lib/mysql"
       - "{{ local_mysql_backup_slave_path }}:/opt/backups"
       - /crons/:/crons/
-      - /opt/sql/:/sql/
+      - /sql/:/sql/
     env:
       MYSQL_ROOT_PASSWORD: "{{ root_password }}"
       MYSQL_DATABASE: "{{ database_name }}"
