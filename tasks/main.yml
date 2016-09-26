@@ -15,6 +15,8 @@
       - "{{ local_mysql_data_path }}:/var/lib/mysql"
     env:
       MYSQL_ROOT_PASSWORD: "{{ root_password }}"
+      MYSQL_USER: "{{ user_em }}"
+      MYSQL_PASSWORD: "{{ password_em }}"
       MYSQL_DATABASE: "{{ database_name }}"
       REPLICATION: "{{ active_replication }}" 
       REPLICATION_NODE: "{{ num_node_master }}"
