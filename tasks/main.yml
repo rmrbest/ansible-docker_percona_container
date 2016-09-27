@@ -6,7 +6,7 @@
   docker:
     name: "{{ container_name }}"
     image: rmrbest/percona
-    state: reloaded
+    state: started
     log_driver: syslog
     detach: true
     ports:
